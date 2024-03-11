@@ -1,0 +1,8 @@
+FROM ros:humble-ros-core
+
+ENV ROS_DISTRO humble
+
+RUN apt-get update && \
+    apt-get install -y ros-${ROS_DISTRO}-rosbridge-server
+
+CMD ["ros2","launch","rosbridge_server","rosbridge_websocket_launch.xml"]
